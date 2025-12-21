@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MarketOne — Landing</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <header class="hero-section">
+    <div class="hero-banner">
+      <picture>
+        <source media="(max-width: 480px)" srcset="images/logo_small.png">
+        <source media="(max-width: 768px)" srcset="images/logo_medium.png">
+        <img class="hero-logo" src="images/logo_large.png" alt="Market One logo">
+      </picture>
+      <picture>
+        <source media="(max-width: 480px)" srcset="images/banner_small.jpg">
+        <source media="(max-width: 768px)" srcset="images/banner_medium.jpg">
+        <img src="images/banner_large.jpg" alt="banner-image">
+      </picture>
+    </div>
+  </header>
+    <nav class="navigation-bar" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">SERVICES</a></li>
+          <li><a href="#">PORTFOLIO</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+    </nav>
+
+  <main class="content">
+    <section class="left-pane" id="about">
+      <h1 class="main-header">Welcome</h1>
+      <p class="intro-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a class="hyper-links" href="#">Duis aute irure</a>
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+
+      <div class="cards">
+        <hr class="mobile-hr" aria-hidden="true">
+        <article class="profile-card">
+          <img src="images/profile_1.jpg" alt="Profile-image">
+          <div class="profile-body">
+            <h3>Profile Name Here</h3>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur.
+            </p>
+            <p>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.
+            </p>
+            <a class="learn-link" href="#">READ MORE <svg width="16" height="10" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <polygon points="0,0 16,10 0,20" fill="#00A1D3"></polygon></svg></a>
+          </div>
+        </article>
+        <hr class="mobile-hr" aria-hidden="true">
+        <article class="profile-card">
+          <img src="images/profile_2.jpg" alt="Profile-image">
+          <div class="profile-body">
+            <h3>Profile Name Here</h3>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+              dolore eu fugiat nulla pariatur.
+            </p>
+            <p>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.
+            </p>
+            <a class="learn-link" href="#">LEARN MORE 
+              <svg width="16" height="10" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <polygon points="0,0 16,10 0,20" fill="#00A1D3"></polygon></svg>
+            </a>
+          </div>
+        </article>
+        <hr class="mobile-hr" aria-hidden="true">
+      </div>
+    </section>
+    
+    <section class="right-pane" id="contact" aria-labelledby="contact-heading">
+      <form id="contact-form">
+        <div class="form-row">
+          <label for="firstName">First Name*</label>
+          <input type="text" id="firstName" name="firstName" required />
+        </div>
+
+        <div class="form-row">
+          <label for="lastName">Last Name*</label>
+          <input type="text" id="lastName" name="lastName" required />
+        </div>
+
+        <div class="form-row">
+          <label for="title">Title*</label>
+          <input type="text" id="title" name="title" placeholder="e.g., Mr, Ms, Dr" required />
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email Address*</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Phone*</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            inputmode="numeric"
+            pattern="[0-9]{10}"
+            placeholder="Enter 10-digit number"
+            required
+          />
+        </div>
+
+        <div class="form-row">
+          <label for="options">Already A Client?*</label>
+          <select id="options" name="options" required>
+            <option value="">--Please Select--</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="unsure">Not Sure</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn primary full">Contact Us</button>
+      </form>
+
+      </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>Copyright © 2013 MarketOne International. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
