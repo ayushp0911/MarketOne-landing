@@ -1,6 +1,3 @@
-/* ========================
-   RESET & BASE
-======================== */
 
 *,
 *::before,
@@ -23,33 +20,12 @@ body {
   line-height: 1.6;
 }
 
-/* Layout order */
-.topbar { order: 0; }
-.hero-banner { order: 1; }
-.container { order: 3; flex: 1; }
-.footer { order: 4; }
-
-/* ========================
-   TOPBAR
-======================== */
-
-.topbar {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 12px 22px;
-}
-
 .logo img {
   height: 42px;
   width: auto;
   display: block;
 }
 
-/* ========================
-   HERO
-======================== */
 
 .hero-banner {
   position: relative;
@@ -59,7 +35,7 @@ body {
 
 .hero-image {
   width: 100%;
-  height: 220px; /* mobile first */
+  height: 220px;
   object-fit: cover;
   display: block;
 }
@@ -82,44 +58,48 @@ body {
   display: block;
 }
 
-/* ========================
-   NAVIGATION
-======================== */
 
 .navigation-bar {
   background-color: #00A1D3;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  padding: 10px 22px;
+  cursor: pointer;
 }
 
 .nav-list {
-  list-style: none;
-  margin: 0 auto;
-  padding: 12px 4%;
-  display: flex;
+  display: none;
   flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 12px 4%;
   gap: 12px;
 }
 
+.nav-list.active {
+  display: flex;
+}
+
 .nav-list a {
-  display: grid;
-  padding: 12px 14px;
+  display: block;
   background: rgba(255, 255, 255, 0.15);
+  padding: 12px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 0.02em;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #fff;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
 }
 
-.nav-list a:hover,
-.nav-list a:focus-visible {
-  text-decoration: underline;
-}
-
-/* ========================
-   CONTENT
-======================== */
 
 .container {
   width: 100%;
@@ -149,9 +129,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* ========================
-   CARDS (CSS GRID ✅)
-======================== */
 
 .cards {
   display: grid;
@@ -198,9 +175,6 @@ body {
   text-decoration: underline;
 }
 
-/* ========================
-   FORMS
-======================== */
 
 .form-row {
   display: flex;
@@ -229,9 +203,6 @@ body {
   box-shadow: 0 0 0 3px rgba(0, 163, 224, 0.2);
 }
 
-/* ========================
-   BUTTONS
-======================== */
 
 .btn {
   display: inline-block;
@@ -258,9 +229,6 @@ body {
   margin-top: 15px;
 }
 
-/* ========================
-   FOOTER (MOBILE)
-======================== */
 
 .footer {
   background-color: #ffffff;
@@ -289,13 +257,9 @@ body {
   color: #00A1D3;
 }
 
-/* ========================
-   TABLET ≥ 481px
-======================== */
 
 @media (min-width: 481px) {
 
-  .topbar,
   .navigation-bar .nav-list,
   .content,
   .footer .footer-container {
@@ -305,9 +269,18 @@ body {
   }
 
   .nav-list {
+    display: flex;
     flex-direction: row;
     gap: 18px;
-    padding: 12px 4%;
+  }
+
+  .nav-list a {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .menu-toggle {
+    display: none;
   }
 
   .content {
@@ -330,15 +303,14 @@ body {
     height: auto;
     margin-bottom: 10px;
   }
+  .mobile-hr {
+	  display: none;
+  }
 }
 
-/* ========================
-   DESKTOP ≥ 769px
-======================== */
 
 @media (min-width: 769px) {
 
-  .topbar,
   .navigation-bar .nav-list,
   .content,
   .footer .footer-container {
@@ -351,9 +323,24 @@ body {
     height: 275px;
   }
 
+  .menu-toggle {
+    display: none;
+  }
+
   .nav-list {
+    display: flex !important;
+    flex-direction: row;
     gap: 32px;
-    padding: 12px 0;
+    padding: 12px 20px;
+  }
+
+  .nav-list a {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .menu-toggle {
+    display: none;
   }
 
   .profile-card {
@@ -363,6 +350,9 @@ body {
   .profile-card img {
     width: 80px;
     height: 80px;
+  }
+  .mobile-hr {
+	  display: none;
   }
 
   .footer {
