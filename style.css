@@ -203,6 +203,23 @@ body {
   box-shadow: 0 0 0 3px rgba(0, 163, 224, 0.2);
 }
 
+.form-row input:required:invalid,
+.form-row select:required:invalid {
+  border-color: #ff0000;
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+}
+
+
+.form-row input:required:invalid:not(:focus),
+.form-row select:required:invalid:not(:focus) {
+  border-color: #ff0000;
+}
+
+.form-row:has(input:invalid) label,
+.form-row:has(select:invalid) label {
+  color: #ff0000;
+}
+
 
 .btn {
   display: inline-block;
