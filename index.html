@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MarketOne — Landing</title>
   <link rel="stylesheet" href="style.css"/>
-  <script src="script.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header class="hero-section">
@@ -23,12 +23,16 @@
     </div>
   </header>
     <nav class="navigation-bar" aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="#">ABOUT US</a></li>
-          <li><a href="#">SERVICES</a></li>
-          <li><a href="#">PORTFOLIO</a></li>
-          <li><a href="#">CONTACT US</a></li>
-        </ul>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu">
+        ☰
+      </button>
+
+      <ul class="nav-list" id="nav-menu">
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">SERVICES</a></li>
+        <li><a href="#">PORTFOLIO</a></li>
+        <li><a href="#">CONTACT US</a></li>
+      </ul>
     </nav>
 
   <main class="content">
@@ -88,22 +92,22 @@
       <form id="contact-form">
         <div class="form-row">
           <label for="firstName">First Name*</label>
-          <input type="text" id="firstName" name="firstName" required />
+          <input type="text" id="firstName" name="firstName" />
         </div>
 
         <div class="form-row">
           <label for="lastName">Last Name*</label>
-          <input type="text" id="lastName" name="lastName" required />
+          <input type="text" id="lastName" name="lastName" />
         </div>
 
         <div class="form-row">
           <label for="title">Title*</label>
-          <input type="text" id="title" name="title" placeholder="e.g., Mr, Ms, Dr" required />
+          <input type="text" id="title" name="title" placeholder="e.g., Mr, Ms, Dr" />
         </div>
 
         <div class="form-row">
           <label for="email">Email Address*</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email"  />
         </div>
 
         <div class="form-row">
@@ -115,13 +119,13 @@
             inputmode="numeric"
             pattern="[0-9]{10}"
             placeholder="Enter 10-digit number"
-            required
+            
           />
         </div>
 
         <div class="form-row">
           <label for="options">Already A Client?*</label>
-          <select id="options" name="options" required>
+          <select id="options" name="options">
             <option value="">--Please Select--</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
@@ -142,6 +146,5 @@
   </footer>
 </body>
 </html>
-
 
 
