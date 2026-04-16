@@ -1,7 +1,12 @@
+/* ========================
+   RESET & BASE
+======================== */
 
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   font-size: 14px;
@@ -24,6 +29,10 @@ body {
 .container { order: 3; flex: 1; }
 .footer { order: 4; }
 
+/* ========================
+   TOPBAR
+======================== */
+
 .topbar {
   width: 100%;
   margin: 0 auto;
@@ -37,6 +46,10 @@ body {
   width: auto;
   display: block;
 }
+
+/* ========================
+   HERO
+======================== */
 
 .hero-banner {
   position: relative;
@@ -55,7 +68,6 @@ body {
   position: absolute;
   top: 12px;
   left: 0;
-  display: inline-block;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
   padding: 4px;
@@ -69,6 +81,10 @@ body {
   width: auto;
   display: block;
 }
+
+/* ========================
+   NAVIGATION
+======================== */
 
 .navigation-bar {
   background-color: #00A1D3;
@@ -85,21 +101,25 @@ body {
 
 .nav-list a {
   display: grid;
-  background: rgba(255, 255, 255, 0.15);
   padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
-  font-weight: bold;
   font-size: 13px;
-  text-decoration: none;
+  font-weight: bold;
   letter-spacing: 0.02em;
+  text-decoration: none;
 }
 
 .nav-list a:hover,
 .nav-list a:focus-visible {
   text-decoration: underline;
 }
+
+/* ========================
+   CONTENT
+======================== */
 
 .container {
   width: 100%;
@@ -125,13 +145,17 @@ body {
 }
 
 .intro-text {
-  margin-bottom: 20px;
   max-width: 75ch;
+  margin-bottom: 20px;
 }
 
+/* ========================
+   CARDS (CSS GRID ✅)
+======================== */
+
 .cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr; /* mobile */
   gap: 15px;
 }
 
@@ -139,7 +163,7 @@ body {
   display: flex;
   gap: 12px;
   padding: 12px;
-  background: #fff;
+  background: #ffffff;
   width: 100%;
 }
 
@@ -174,6 +198,10 @@ body {
   text-decoration: underline;
 }
 
+/* ========================
+   FORMS
+======================== */
+
 .form-row {
   display: flex;
   flex-direction: column;
@@ -188,7 +216,6 @@ body {
 .form-row input,
 .form-row select {
   padding: 6px;
-  margin-bottom: 3px;
   border: 1px solid #cfcfcf;
   border-radius: 4px;
   font-size: 14px;
@@ -202,14 +229,18 @@ body {
   box-shadow: 0 0 0 3px rgba(0, 163, 224, 0.2);
 }
 
+/* ========================
+   BUTTONS
+======================== */
+
 .btn {
   display: inline-block;
   padding: 12px 16px;
-  border: 0;
   border-radius: 3px;
+  border: 0;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 16px;
 }
 
 .btn.primary {
@@ -226,6 +257,10 @@ body {
   width: 100%;
   margin-top: 15px;
 }
+
+/* ========================
+   FOOTER (MOBILE)
+======================== */
 
 .footer {
   background-color: #ffffff;
@@ -244,15 +279,19 @@ body {
 
 .mobile-hr {
   display: block;
-  border: 0;
   height: 1px;
   background: #c4c3c3e8;
+  border: 0;
   margin: 6px 0;
 }
 
 .hyper-links {
   color: #00A1D3;
 }
+
+/* ========================
+   TABLET ≥ 481px
+======================== */
 
 @media (min-width: 481px) {
 
@@ -273,20 +312,17 @@ body {
 
   .content {
     flex-direction: row;
-    align-items: flex-start;
     margin: 20px auto 28px;
   }
 
   .cards {
-    flex-direction: row;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
   .profile-card {
     flex-direction: column;
-    min-width: 160px;
-    width: calc(50% - 10px);
+    align-items: flex-start;
   }
 
   .profile-card img {
@@ -295,6 +331,10 @@ body {
     margin-bottom: 10px;
   }
 }
+
+/* ========================
+   DESKTOP ≥ 769px
+======================== */
 
 @media (min-width: 769px) {
 
@@ -318,8 +358,6 @@ body {
 
   .profile-card {
     flex-direction: row;
-    min-width: 220px;
-    width: calc(50% - 10px);
   }
 
   .profile-card img {
@@ -332,4 +370,3 @@ body {
     color: #ffffff;
   }
 }
-``
