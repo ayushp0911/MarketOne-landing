@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleBtn.setAttribute("aria-expanded", isOpen);
     });
   }
+
   const form = document.querySelector("#contact-form");
 
   const statusMessage = document.createElement("p");
@@ -31,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   Object.values(fields).forEach(field => {
     field.addEventListener("input", () => {
-      field.classList.remove("error", "success");
 
+      field.classList.remove("error", "success");
       const value = field.value.trim();
 
       if (
@@ -58,73 +59,77 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  /* ===========================
-     SUBMIT HANDLER
-     =========================== */
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     statusMessage.textContent = "";
     statusMessage.style.color = "red";
 
-    // Clear previous states
     Object.values(fields).forEach(field =>
       field.classList.remove("error", "success")
     );
 
-    /* ✅✅ CRITICAL FIX
-       If ALL fields are empty → mark ALL red and STOP
-    */
     const allEmpty = Object.values(fields).every(field =>
       field.value.trim() === ""
     );
 
     if (allEmpty) {
-      Object.values(fields).forEach(field =>
-        field.classList.add("error")
-      );
+      Object.values(fields).forEach(field => field.classList.add("error"));
       statusMessage.textContent = "Please fill out all required fields.";
       return;
     }
-    let hasError = false;
+
+    let errorCount = 0;
+    let firstErrorMessage = "";
 
     if (!namePattern.test(fields.firstName.value.trim())) {
       fields.firstName.classList.add("error");
-      hasError = true;
+      errorCount++;
+      firstErrorMessage ||= "Enter a valid first name.";
     } else fields.firstName.classList.add("success");
 
     if (!namePattern.test(fields.lastName.value.trim())) {
       fields.lastName.classList.add("error");
-      hasError = true;
+      errorCount++;
+      firstErrorMessage ||= "Enter a valid last name.";
     } else fields.lastName.classList.add("success");
 
     if (!namePattern.test(fields.title.value.trim())) {
       fields.title.classList.add("error");
-      hasError = true;
+      errorCount++;
+      firstErrorMessage ||= "Enter a valid title.";
     } else fields.title.classList.add("success");
 
     if (!emailPattern.test(fields.email.value.trim())) {
       fields.email.classList.add("error");
-      hasError = true;
+      errorCount++;
+      firstErrorMessage ||= "Enter a valid email.";
     } else fields.email.classList.add("success");
 
     if (!phonePattern.test(fields.phone.value.trim())) {
       fields.phone.classList.add("error");
-      hasError = true;
+      errorCount++;
+      firstErrorMessage ||= "Enter a valid 10-digit phone number.";
     } else fields.phone.classList.add("success");
 
     if (fields.options.value === "") {
       fields.options.classList.add("error");
-      hasError = true;
+      errorCount++;
+      firstErrorMessage ||= "Please select an option.";
     } else fields.options.classList.add("success");
 
-    if (hasError) {
-      statusMessage.textContent = "Please fix the highlighted fields.";
+    if (errorCount > 0) {
+      statusMessage.textContent =
+        errorCount === 1
+          ? firstErrorMessage
+          : "Please fix the highlighted fields.";
       return;
     }
 
     statusMessage.style.color = "green";
-    statusMessage.textContent = "Your response has been recorded successfully!";
+    statusMessage.textContent =
+      "Your response has been recorded successfully!";
+
     form.reset();
 
     Object.values(fields).forEach(field =>
