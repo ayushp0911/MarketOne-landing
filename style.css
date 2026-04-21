@@ -45,12 +45,12 @@ body {
 
 .hero-logo {
   position: absolute;
-  top: 12px;
+  top: 7px;
   left: 0;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
-  padding: 4px;
-  border-radius: 4px;
+  padding: 2px;
+  border-radius: 2px;
   z-index: 2;
   text-decoration: none;
 }
@@ -309,6 +309,12 @@ body {
     padding: 0;
   }
 
+  .hero-logo {
+    position: absolute;
+    top: 12px;
+    padding: 4px;
+    border-radius: 4px;
+  }
   
   .nav-list li a::after {
     content: none;
@@ -356,6 +362,13 @@ body {
   
   .hero-banner picture:last-child img {
     height: 275px;
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 12px;
+    padding: 4px;
+    border-radius: 4px;
   }
 
   .menu-toggle {
