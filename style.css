@@ -1,4 +1,3 @@
-
 *,
 *::before,
 *::after {
@@ -28,16 +27,20 @@ body {
 
 
 .hero-banner {
-  position: relative;
+  position: relative;    
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;            
   overflow: hidden;
 }
 
-.hero-image {
+
+.hero-banner picture:last-child img {
+  display: block;            
   width: 100%;
-  height: 220px;
+  height: auto;           
   object-fit: cover;
-  display: block;
+  margin: 0 auto;            
 }
 
 .hero-logo {
@@ -52,8 +55,9 @@ body {
   text-decoration: none;
 }
 
+
 .hero-logo img {
-  height: 44px;
+  height: 34px;
   width: auto;
   display: block;
 }
@@ -71,7 +75,7 @@ body {
   border: none;
   font-size: 26px;
   color: white;
-  padding: 10px 22px;
+  padding: 6px 20px;
   cursor: pointer;
 }
 
@@ -90,16 +94,30 @@ body {
 
 .nav-list a {
   display: block;
+  position: relative;            
   background: rgba(255, 255, 255, 0.15);
-  padding: 12px;
+  padding: 12px 44px 12px 16px;   
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 2px solid rgba(229, 228, 228, 0.962);
   color: #fff;
   text-decoration: none;
   font-weight: bold;
   font-size: 13px;
 }
 
+
+.nav-list li a::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 55%;
+  transform: translateY(-40%);
+  width: 20px;
+  height: 20px;
+  background-image: url("images/mobile_link_arrow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
 .container {
   width: 100%;
@@ -132,7 +150,7 @@ body {
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr; /* mobile */
+  grid-template-columns: 1fr;
   gap: 15px;
 }
 
@@ -290,6 +308,12 @@ body {
     border: none;
     padding: 0;
   }
+
+  
+  .nav-list li a::after {
+    content: none;
+  }
+
   .menu-toggle {
     display: none;
   }
@@ -329,8 +353,8 @@ body {
     padding-left: 20px;
     padding-right: 20px;
   }
-
-  .hero-image {
+  
+  .hero-banner picture:last-child img {
     height: 275px;
   }
 
@@ -349,6 +373,10 @@ body {
     background: none;
     border: none;
     padding: 0;
+  }
+
+  .nav-list li a::after {
+    content: none;
   }
   .menu-toggle {
     display: none;
@@ -369,5 +397,12 @@ body {
   .footer {
     background-color: #00A1D3;
     color: #ffffff;
+  }
+}
+
+
+@media (min-width: 981px) {
+  .hero-banner picture:last-child img {
+    height: clamp(275px, 22vw, 380px);
   }
 }
