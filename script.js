@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
       statusMessage.textContent =
         errorCount === 1
           ? firstErrorMessage
-          : "Please fix the highlighted fields.";
+          : "Please fill the highlighted fields.";
       return;
     }
 
