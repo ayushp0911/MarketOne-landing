@@ -419,4 +419,8 @@ body {
   .hero-banner picture:last-child img {
     height: clamp(275px, 22vw, 380px);
   }
+	ul#nav-menu {
+    align-self: center;
+    gap: 211px;
+  }
 }
