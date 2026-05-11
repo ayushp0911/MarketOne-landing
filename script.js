@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     options: form.querySelector("#options")
   };
 
-  const namePattern = /^[A-Za-z]{2,}$/;
+  const namePattern = /^[A-Za-z]+$/;
+  const titlePattern = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phonePattern = /^[6-9]\d{9}$/;
 
@@ -36,12 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
       field.classList.remove("error", "success");
       const value = field.value.trim();
 
+     
       if (
-        (field === fields.firstName ||
-         field === fields.lastName ||
-         field === fields.title) &&
+        (field === fields.firstName || field === fields.lastName) &&
         value && !namePattern.test(value)
       ) {
+        field.classList.add("error");
+      }
+      
+      if (field === fields.title && value && !titlePattern.test(value)) {
         field.classList.add("error");
       }
 
@@ -94,11 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
       firstErrorMessage ||= "Enter a valid last name.";
     } else fields.lastName.classList.add("success");
 
-    if (!namePattern.test(fields.title.value.trim())) {
+    
+    if (!titlePattern.test(fields.title.value.trim())) {
       fields.title.classList.add("error");
       errorCount++;
       firstErrorMessage ||= "Enter a valid title.";
-    } else fields.title.classList.add("success");
+    } else {
+      fields.title.classList.add("success");
+    }
 
     if (!emailPattern.test(fields.email.value.trim())) {
       fields.email.classList.add("error");
