@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const namePattern = /^[A-Za-z]+$/;
-  const titlePattern = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
+  const titlePattern = /^[A-Za-z]+\.?(?:\s[A-Za-z]+\.?)*$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phonePattern = /^[6-9]\d{9}$/;
 
